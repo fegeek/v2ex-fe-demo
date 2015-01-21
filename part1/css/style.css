@@ -111,23 +111,29 @@ a img {
 }
 
 .container{
+	/**
+	 * 定义一个共用的容器，宽度为970px
+	 * 为什么要定义970？因为v2ex是970px
+	 * 这个container有什么作用？
+	 * 最直接的作用就是不需要为每个大区块再定义宽度
+	 * 另一个作用就是为了方便后续的网页自适应开发
+	 */
 	width:970px;
 	height:auto;
-	margin:auto;
+	margin:auto;/* 这句的作用是使得这个容器居中，即左右边距相等 */
 }
-
 
 /**
  * Site Header
  */
 .site-header{
-	width: 100%;
+	width: 100%; /* 全屏宽度 */
 	height: 44px; /* Why 44px? 因为v2ex是44px */
 	overflow: hidden;
-	background-image: url(../img/site-header-bg-repeat.png);
+	background-image: url(../img/site-header-bg-repeat.png); /* 这句和下句主要针对旧版本浏览器，比如IE8- */
 	background-repeat: repeat;
 	/*
-	 * 以下是设置background渐变色
+	 * 以下是通过CSS设置background渐变色
 	 * 为了兼容各版本浏览器，加上各厂商的私有前缀
 	 * 最新版本的浏览器均支持css3，所以无需这么繁琐
 	 */
@@ -136,7 +142,7 @@ a img {
 	background:      -o-linear-gradient(#6ea3d9,#467aae); /* Opera: -o- */
 	background:     -ms-linear-gradient(#6ea3d9,#467aae); /* IE: -ms- */
 	background:         linear-gradient(#6ea3d9,#467aae); /* Default */
-	box-shadow: 0 2px 5px 0 rgba(0,0,0,.4);
+	box-shadow: 0 2px 5px 0 rgba(0,0,0,.4); /* box-shadow是css3的新属性，用于设置box的阴影 */
 }
 .site-header-logo{
 	width:150px;

@@ -60,15 +60,10 @@
  */
 .site-header{
 	width: 100%;
-	height: 44px; /* Why 44px? 因为v2ex是44px */
+	height: 44px;
 	overflow: hidden;
 	background-image: url(../img/site-header-bg-repeat.png);
 	background-repeat: repeat;
-	/*
-	 * 以下是设置background渐变色
-	 * 为了兼容各版本浏览器，加上各厂商的私有前缀
-	 * 最新版本的浏览器均支持css3，所以无需这么繁琐
-	 */
 	background: -webkit-linear-gradient(#6ea3d9,#467aae); /* Chrome & Safari: -webkit- */
 	background:    -moz-linear-gradient(#6ea3d9,#467aae); /* Firefox: -moz- */
 	background:      -o-linear-gradient(#6ea3d9,#467aae); /* Opera: -o- */
@@ -136,23 +131,29 @@
 ```
 ```css
 .container{
+	/**
+	 * 定义一个共用的容器，宽度为970px
+	 * 为什么要定义970？因为v2ex是970px
+	 * 这个container有什么作用？
+	 * 最直接的作用就是不需要为每个大区块再定义宽度
+	 * 另一个作用就是为了方便后续的网页自适应开发
+	 */
 	width:970px;
 	height:auto;
-	margin:auto;
+	margin:auto;/* 这句的作用是使得这个容器居中，即左右边距相等 */
 }
-
 
 /**
  * Site Header
  */
 .site-header{
-	width: 100%;
+	width: 100%; /* 全屏宽度 */
 	height: 44px; /* Why 44px? 因为v2ex是44px */
 	overflow: hidden;
-	background-image: url(../img/site-header-bg-repeat.png);
+	background-image: url(../img/site-header-bg-repeat.png); /* 这句和下句主要针对旧版本浏览器，比如IE8- */
 	background-repeat: repeat;
 	/*
-	 * 以下是设置background渐变色
+	 * 以下是通过CSS设置background渐变色
 	 * 为了兼容各版本浏览器，加上各厂商的私有前缀
 	 * 最新版本的浏览器均支持css3，所以无需这么繁琐
 	 */
@@ -161,7 +162,7 @@
 	background:      -o-linear-gradient(#6ea3d9,#467aae); /* Opera: -o- */
 	background:     -ms-linear-gradient(#6ea3d9,#467aae); /* IE: -ms- */
 	background:         linear-gradient(#6ea3d9,#467aae); /* Default */
-	box-shadow: 0 2px 5px 0 rgba(0,0,0,.4);
+	box-shadow: 0 2px 5px 0 rgba(0,0,0,.4); /* box-shadow是css3的新属性，用于设置box的阴影 */
 }
 .site-header-logo{
 	width:150px;
@@ -210,3 +211,28 @@
 	text-decoration:underline;
 }
 ```
+##一些必须了解的知识
+
+###CSS Reset
+各厂商都有自带的默认样式，而Reset的作用就是清除这些差异，然后再重新定义。比如padding、margin、border等等。<br>
+###自闭合标签
+HTML5认为自闭合标签无需添加/
+###样式属性的先后顺序
+位置、大小、浮动、边距、排版、外观<br>
+非强制要求，按照个人的习惯书写即可。
+###Class命名
+在小型项目中，class命名规范不是很重要，但养成良好的命名习惯是很有用的，尤其是一个多人维护的项目。<br>
+我的一些习惯：<br>
+<ul>
+<li>class全小写</li>
+<li>使用中划线-连接</li>
+<li>使用有意义的名称</li>
+<li>尽量英文命名，汉语拼音总觉得很别扭</li>
+<li>用父级容器的class作为前缀</li>
+<li>赶项目的情况写，上面几点都是浮云</li>
+</ul>
+###代码缩进
+使用tab键，而不是直接敲空格
+###更多代码书写规范请参考
+这篇内容非常好，推荐一看。
+<a href="http://alloyteam.github.io/code-guide/" target="_blank">Code Guide by @AlloyTeam</a>
