@@ -97,3 +97,116 @@
 	padding:10px 0;
 }
 ```
+##填入内容
+容器搞定了，接下来便要开始写里面的内容了。从左边开始，我们知道，那是个Logo，鼠标点击可以回到首页。由此可知，左边这个区域里的内容就是一个带了链接的图片。<br>
+```html
+<a href="url" title="title"><img src="ImgUrl" alt="ImgDescription"></a>
+```
+再到中间区域，这是一个搜索框，再直白一点就是一个type="text"的input，所以这样写就可以了。<br>
+```html
+<input type="text" placeholder="Search here...">
+```
+最右为导航菜单，本质上就是一组链接。拆分一下，首先是“一组”，字面意义告诉我们这是N个条目，然后是“链接”，首先想到了a标签。这样简单分析之后，这部分内容就可以这么写了。<br>
+```html
+<ul>
+	<li><a href="#">Home</a></li>
+	<li><a href="#">Log In</a></li>
+	<li><a href="#">Create New Account</a></li>
+</ul>
+```
+分别置入对应的区块容器，所以头部完整的HTML代码也就出来了。
+```html
+<div class="site-header">
+	<div class="container">
+    	<div class="site-header-logo">
+        	<a href="#"><img src="img/logo-header.png"></a>
+        </div>
+        <div class="site-header-search">
+        	<input type="text" placeholder="Search here...">
+        </div>
+        <div class="site-header-menu">
+        	<ul>
+            	<li><a href="#">Home</a></li>
+            	<li><a href="#">Log In</a></li>
+            	<li><a href="#">Create New Account</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+```
+```css
+.container{
+	width:970px;
+	height:auto;
+	margin:auto;
+}
+
+
+/**
+ * Site Header
+ */
+.site-header{
+	width: 100%;
+	height: 44px; /* Why 44px? 因为v2ex是44px */
+	overflow: hidden;
+	background-image: url(../img/site-header-bg-repeat.png);
+	background-repeat: repeat;
+	/*
+	 * 以下是设置background渐变色
+	 * 为了兼容各版本浏览器，加上各厂商的私有前缀
+	 * 最新版本的浏览器均支持css3，所以无需这么繁琐
+	 */
+	background: -webkit-linear-gradient(#6ea3d9,#467aae); /* Chrome & Safari: -webkit- */
+	background:    -moz-linear-gradient(#6ea3d9,#467aae); /* Firefox: -moz- */
+	background:      -o-linear-gradient(#6ea3d9,#467aae); /* Opera: -o- */
+	background:     -ms-linear-gradient(#6ea3d9,#467aae); /* IE: -ms- */
+	background:         linear-gradient(#6ea3d9,#467aae); /* Default */
+	box-shadow: 0 2px 5px 0 rgba(0,0,0,.4);
+}
+.site-header-logo{
+	width:150px;
+	height:34px;
+	float:left;
+	padding:5px 0;
+}
+.site-header-logo img{
+	height:34px;
+}
+.site-header-search{
+	width:260px;
+	height:24px;
+	float:left;
+	padding:10px 0;
+	margin-left:20px;
+}
+.site-header-search input[type="text"]{
+	width:200px;
+	height:24px;
+	padding:3px 12px 3px 24px;
+	border:0;
+	border-radius:12px;
+	background:#fff url(../img/icon-search.png) 5px center no-repeat;
+}
+.site-header-search input[type="text"]:focus{
+	outline:none; /* 去除焦点边框 */
+}
+.site-header-menu{
+	float:right;
+	height:24px;
+	padding:10px 0;
+}
+.site-header-menu ul{
+	line-height:24px;
+}
+.site-header-menu ul li{
+	float:left;
+	margin-left:20px;
+}
+.site-header-menu ul li a{
+	color:#fff;
+	text-decoration:none;
+}
+.site-header-menu ul li a:hover{
+	text-decoration:underline;
+}
+```
