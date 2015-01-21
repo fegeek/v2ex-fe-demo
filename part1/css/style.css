@@ -1,0 +1,236 @@
+/**
+ * v2ex-fe-demo
+ * Author: Liyer
+ * License: GNU General Public License v2 or later
+ * License URI: http://www.gnu.org/licenses/gpl-2.0.html
+ */
+
+
+/**
+ * CSS Reset
+ *
+ * Resetting and rebuilding styles have been helped along thanks to the fine work of
+ * Eric Meyer http://meyerweb.com/eric/tools/css/reset/index.html
+ * along with Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
+ * and Blueprint http://www.blueprintcss.org/
+ */
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+	border: 0;
+	font-family: inherit;
+	font-size: 100%;
+	font-style: inherit;
+	font-weight: inherit;
+	margin: 0;
+	outline: 0;
+	padding: 0;
+	vertical-align: baseline;
+}
+
+html {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	font-size: 62.5%;
+	overflow-y: scroll;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+}
+
+*,
+*:before,
+*:after {
+	-webkit-box-sizing: inherit;
+	-moz-box-sizing: inherit;
+	box-sizing: inherit;
+}
+
+body {
+	font-family: Verdana, "Times New Roman", "Microsoft YaHei", STXihei, serif;
+	background: #e7e7e7;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+main,
+nav,
+section {
+	display: block;
+}
+
+ol,
+ul {
+	list-style: none;
+}
+
+table {
+	border-collapse: separate;
+	border-spacing: 0;
+}
+
+caption,
+th,
+td {
+	font-weight: normal;
+	text-align: left;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+	content: "";
+}
+
+blockquote,
+q {
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+	quotes: none;
+}
+
+a:focus {
+	outline: 2px solid #c1c1c1;
+	outline: 2px solid rgba(51, 51, 51, 0.3);
+}
+
+a:hover,
+a:active {
+	outline: 0;
+}
+
+a img {
+	border: 0;
+}
+
+.container{
+	width:970px;
+	height:auto;
+	margin:auto;
+}
+
+
+/**
+ * Site Header
+ */
+.site-header{
+	width: 100%;
+	height: 44px; /* Why 44px? 因为v2ex是44px */
+	overflow: hidden;
+	background-image: url(../img/site-header-bg-repeat.png);
+	background-repeat: repeat;
+	/*
+	 * 以下是设置background渐变色
+	 * 为了兼容各版本浏览器，加上各厂商的私有前缀
+	 * 最新版本的浏览器均支持css3，所以无需这么繁琐
+	 */
+	background: -webkit-linear-gradient(#6ea3d9,#467aae); /* Chrome & Safari: -webkit- */
+	background:    -moz-linear-gradient(#6ea3d9,#467aae); /* Firefox: -moz- */
+	background:      -o-linear-gradient(#6ea3d9,#467aae); /* Opera: -o- */
+	background:     -ms-linear-gradient(#6ea3d9,#467aae); /* IE: -ms- */
+	background:         linear-gradient(#6ea3d9,#467aae); /* Default */
+	box-shadow: 0 2px 5px 0 rgba(0,0,0,.4);
+}
+.site-header-logo{
+	width:150px;
+	height:34px;
+	float:left;
+	padding:5px 0;
+}
+.site-header-logo img{
+	height:34px;
+}
+.site-header-search{
+	width:260px;
+	height:24px;
+	float:left;
+	padding:10px 0;
+	margin-left:20px;
+}
+.site-header-search input[type="text"]{
+	width:200px;
+	height:24px;
+	padding:3px 12px 3px 24px;
+	border:0;
+	border-radius:12px;
+	background:#fff url(../img/icon-search.png) 5px center no-repeat;
+}
+.site-header-search input[type="text"]:focus{
+	outline:none; /* 去除焦点边框 */
+}
+.site-header-menu{
+	float:right;
+	height:24px;
+	padding:10px 0;
+}
+.site-header-menu ul{
+	line-height:24px;
+}
+.site-header-menu ul li{
+	float:left;
+	margin-left:20px;
+}
+.site-header-menu ul li a{
+	color:#fff;
+	text-decoration:none;
+}
+.site-header-menu ul li a:hover{
+	text-decoration:underline;
+}
+
+
+/**
+ * Site Main
+ */
+.site-main{
+	width:100%;
+	height:auto;
+	overflow:hidden;
+	margin-top:20px;
+}
+.site-main-left{
+	width:680px;
+	height:auto;
+	overflow:hidden;
+	float:left;
+}
+.site-main-right{
+	width:270px;
+	height:auto;
+	overflow:hidden;
+	float:right;
+}
+.site-main-container{
+	width:100%;
+	height:auto;
+	overflow:hidden;
+	padding:10px;
+	margin-bottom:20px;
+	background:#fff;
+	border:1px solid #ddd;
+	border-radius:3px;
+}
+
+
+/**
+ * Site Footer
+ */
+.site-footer{
+	width:100%;
+	height:auto;
+	overflow:hidden;
+	background:#fff;
+}
+.site-footer-main{
+	width:100%;
+	height:auto;
+	overflow:hidden;
+	padding:20px 0;
+}
