@@ -43,3 +43,57 @@
 </div>
 ```
 
+##样式控制
+在前面的代码中，一共出现了5个Class Name：site-header container site-header-logo site-header-search site-header-menu<br>
+
+新建一个style.css文档，定义这些class的样式。<br>
+
+```CSS
+.container{
+	width:970px;
+	height:auto;
+	margin:auto;
+}
+
+/**
+ * Site Header
+ */
+.site-header{
+	width: 100%;
+	height: 44px; /* Why 44px? 因为v2ex是44px */
+	overflow: hidden;
+	background-image: url(../img/site-header-bg-repeat.png);
+	background-repeat: repeat;
+	/*
+	 * 以下是设置background渐变色
+	 * 为了兼容各版本浏览器，加上各厂商的私有前缀
+	 * 最新版本的浏览器均支持css3，所以无需这么繁琐
+	 */
+	background: -webkit-linear-gradient(#6ea3d9,#467aae); /* Chrome & Safari: -webkit- */
+	background:    -moz-linear-gradient(#6ea3d9,#467aae); /* Firefox: -moz- */
+	background:      -o-linear-gradient(#6ea3d9,#467aae); /* Opera: -o- */
+	background:     -ms-linear-gradient(#6ea3d9,#467aae); /* IE: -ms- */
+	background:         linear-gradient(#6ea3d9,#467aae); /* Default */
+	box-shadow: 0 2px 5px 0 rgba(0,0,0,.4);
+}
+.site-header-logo{
+	width:150px;
+	height:34px;
+	float:left;
+	padding:5px 0;
+}
+
+.site-header-search{
+	width:260px;
+	height:24px;
+	float:left;
+	padding:10px 0;
+	margin-left:20px;
+}
+
+.site-header-menu{
+	float:right;
+	height:24px;
+	padding:10px 0;
+}
+```
